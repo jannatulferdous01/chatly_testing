@@ -114,3 +114,26 @@ Evidence    : prompt_injection_response.png
 Test File   : test_chat_widget.py
 Test Name   : test_prompt_injection
 ================================================================
+===========================bug 03==========
+BUG ID       : BUG-003
+Title        : XSS input saved in greeting message field
+Module       : Widget Customization — Greeting Message
+Severity     : High
+Priority     : Critical
+Status       : Open
+
+Description  : When <script>alert('xss')</script> is entered in
+               the greeting message field and saved, the raw
+               script tag is stored and displayed as the chatbot
+               greeting instead of being sanitized or rejected.
+
+Steps        : 1. Go to Edit Chatbot page
+               2. In greeting message field enter:
+                  <script>alert('xss')</script>
+               3. Click Save Changes
+               4. Go to Embed page
+
+Expected     : Input should be sanitized or rejected
+Actual       : Raw script tag saved and shown as greeting message
+Evidence     : embed_page.png
+===================== bug 04 ================
